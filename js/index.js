@@ -11,7 +11,7 @@
                 "margin-top": "21px"
             }).animate({
                 width: t + "px"
-            }, 800), setTimeout(function() {
+            }, 80), setTimeout(function() {
                 return $("body").removeClass("loading")
             }, 1e3)
         }, -1 !== navigator.appVersion.indexOf("Windows") && $("body").addClass("pcuser"), e = $("html").attr("lang"), "fr" === e ? (t = 397, "en" === navigator.language.substring(0, 2) && (window.location.href = "http://vincentgarreau.com/en")) : t = 365, $(".companies_top li, .works li > a:first-of-type").on("mouseenter mouseleave", function(n) {
@@ -27,15 +27,6 @@
                 eventCategory: "Company",
                 eventAction: "Hover",
                 eventLabel: e
-            })
-        }), $("a").on("click", function() {
-            var n, e, t;
-            t = $(this), e = t.text(), n = t.attr("href"), dataLayer.push({
-                event: "navigation",
-                eventCategory: "Links",
-                eventAction: "Click",
-                eventLabel: e,
-                eventValue: n
             })
         })
     })
@@ -153,23 +144,3 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
-
-/* ---- stats.js config ---- */
-
-var count_particles, stats, update;
-stats = new Stats;
-stats.setMode(0);
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.left = '0px';
-stats.domElement.style.top = '0px';
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector('.js-count-particles');
-update = function() {
-  stats.begin();
-  stats.end();
-  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-  }
-  requestAnimationFrame(update);
-};
-requestAnimationFrame(update);
